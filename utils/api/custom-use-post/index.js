@@ -1,10 +1,6 @@
 import { useState, useEffect, useReducer } from "react";
 import axios from "axios";
-
-/**
- * User Library
- */
-import { fetchReducer } from "../../reducers";
+import { fetchReducer } from "../../reducers/fetch-reducer";
 
 export default function usePost() {
   const [state, dispatch] = useReducer(fetchReducer, {
@@ -60,6 +56,7 @@ export default function usePost() {
     }
 
     if (options !== null || !options) {
+      console.log("OPtions: ", options);
       post();
     }
 

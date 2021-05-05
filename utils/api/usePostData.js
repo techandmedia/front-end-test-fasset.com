@@ -8,12 +8,6 @@ export function usePostData(initialAPI, initialParams) {
   const [state, postData] = usePost();
 
   useEffect(() => {
-    // const initToken = localStorage.getItem("token");
-    // setToken(initToken);
-    // if (initToken && initialAPI) {
-    //   setOptions({ api: initialAPI, params: initialParams });
-    // }
-
     if (initialAPI) {
       setOptions({ api: initialAPI, params: initialParams });
     }
@@ -28,7 +22,6 @@ export function usePostData(initialAPI, initialParams) {
         url: URL + api,
         data: params,
         headers: {
-          // Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       };

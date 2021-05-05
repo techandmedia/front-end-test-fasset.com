@@ -6,6 +6,16 @@ export function userReducer(state, action) {
       console.log(value);
       return {
         ...state,
+        ...value,
+        GET_COIN_LIST_API: "coins/list",
+        GET_TOP_50_COIN_LIST_API: "coins/markets",
+        GET_TOP_50_COIN_PARAMS: {
+          page: 1,
+          per_page: 50,
+          sparkline: true,
+          vs_currency: "usd",
+          order: "market_cap_desc",
+        },
       };
 
     case "login":
