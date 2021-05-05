@@ -20,7 +20,7 @@ export function usePostData(initialAPI, initialParams) {
       const newParams = {
         method: "get",
         url: URL + api,
-        data: params,
+        // data: params,
         headers: {
           "Content-Type": "application/json",
         },

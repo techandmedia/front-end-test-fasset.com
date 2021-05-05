@@ -11,33 +11,12 @@ export function fetchReducer(state, action) {
       };
 
     case "POST_SUCCESS":
-      const { code, title, message, pagination } = result;
-      /**
-       * Supaya nomor urut bertambah pada saat pindah halaman,
-       * tanpa ini, maka setiap halaman memiliki nomor urut yang sama: 1-10
-       */
-      const numberAddition =
-        result.pagination && result.pagination.page
-          ? result.pagination.page * 10 - 10
-          : 0;
-
-      /**
-       * Menambahkan nomor urut
-       */
-      const data =
-        result.data && Array.isArray(result.data)
-          ? result.data.map((data, index) => {
-              const key = { key: index + 1 + numberAddition };
-              return { ...key, ...data };
-            })
-          : result.data;
       return {
         ...state,
-        code,
-        title,
-        message,
-        data,
-        pagination,
+        code: result.status,
+        title: "Success",
+        message: "Ok",
+        data: result.data,
         isLoading: false,
         isError: false,
       };
