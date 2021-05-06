@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Table } from "antd";
 
 const formatCurrency = new Intl.NumberFormat("EN", {
@@ -19,10 +20,17 @@ const columns = [
     key: "name",
     sorter: (a, b) => a.name - b.name,
     render: (text, record) => (
-      <div>
-        <img src={record.image} height={20} style={{ marginRight: 10 }} />
-        {record.name}
-      </div>
+      <Link
+        key={record.id}
+        href={{
+          pathname: `/coin/${record.id}`,
+        }}
+      >
+        <a>
+          <img src={record.image} height={20} style={{ marginRight: 10 }} />
+          {record.name}
+        </a>
+      </Link>
     ),
   },
   {
@@ -64,6 +72,13 @@ const columns = [
     width: 10,
     render: (text) => formatCurrency.format(text),
   },
+  {
+    title: "Last 7 days",
+    dataIndex: "market_cap",
+    key: "market_cap",
+    width: 10,
+    render: (text) => formatCurrency.format(text),
+  },
 ];
 
 function onChange(pagination, filters, sorter, extra) {
@@ -71,6 +86,7 @@ function onChange(pagination, filters, sorter, extra) {
 }
 
 export function CustomTable({ data }) {
+  console.log(data);
   return (
     <Table
       columns={columns}
@@ -78,6 +94,7 @@ export function CustomTable({ data }) {
       loading={data.isLoading}
       onChange={onChange}
       pagination={false}
+      rowKey="id"
     />
   );
 }

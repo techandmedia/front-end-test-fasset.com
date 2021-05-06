@@ -3,9 +3,6 @@ import { useGetData } from "../utils/api/useGetData";
 import { UserContext } from "../utils/context/Global-Context";
 import { CustomTable } from "../components/table";
 
-// Custom DatePicker that uses Day.js instead of Moment.js
-// import DatePicker from "../components/DatePicker";
-
 export default function Home() {
   const { user } = useContext(UserContext);
   const [coins, getCoins] = useGetData(null);
