@@ -20,6 +20,18 @@ export function userReducer(state, action) {
         },
       };
 
+    case 'update-coin':
+      return {
+        ...state,
+        coin: value.coin_name,
+      };
+
+    case 'reset-coin':
+      return {
+        ...state,
+        coin: null,
+      };
+
     case 'login':
       console.log(value);
       return {

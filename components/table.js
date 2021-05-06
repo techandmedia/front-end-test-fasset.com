@@ -1,10 +1,6 @@
 import Link from 'next/link';
 import { Table } from 'antd';
-
-const formatCurrency = new Intl.NumberFormat('EN', {
-  style: 'currency',
-  currency: 'USD',
-});
+import { formatCurrency } from '../utils/helpers';
 
 const columns = [
   {
