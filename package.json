@@ -6,7 +6,7 @@
     "format": "prettier --write \"components/**/*.js\" \"modules/**/*.js\" \"utils/**/*.js\" \"pages/**/*.js\" \"test/**/*.js\"",
     "dev": "yarn clean && yarn format && cross-env NODE_ENV=development next",
     "build": "next build",
-    "export": "next build && next export",
+    "export": "yarn && next build && next export",
     "start": "next start"
   },
   "dependencies": {
