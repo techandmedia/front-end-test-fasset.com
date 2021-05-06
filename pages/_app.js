@@ -1,29 +1,29 @@
-import { useContext, useEffect } from "react";
-import "antd/dist/antd.css";
-import "../styles/vars.css";
-import "../styles/global.css";
-import GlobalProvider, { UserContext } from "../utils/context/Global-Context";
-import { useCheckServer } from "../utils/api/custom-use-post/server-check";
-import { AppLayout } from "../components/layout";
+import { useContext, useEffect } from 'react';
+import 'antd/dist/antd.css';
+import '../styles/vars.css';
+import '../styles/global.css';
+import GlobalProvider, { UserContext } from '../utils/context/Global-Context';
+import { useCheckServer } from '../utils/api/custom-use-post/server-check';
+import { AppLayout } from '../components/layout';
 
 function App({ Component, pageProps }) {
   const { dispatchUser } = useContext(UserContext);
-  const [statusServer] = useCheckServer("ping");
+  const [statusServer] = useCheckServer('ping');
 
   useEffect(() => {
-    if (statusServer === "ok") {
+    if (statusServer === 'ok') {
       dispatchUser({
-        type: "init",
+        type: 'init',
         value: { statusServer: statusServer },
       });
     }
   }, [statusServer]);
 
-  if (statusServer === "0") {
+  if (statusServer === '0') {
     return <AppLayout>Checking your server, please wait...</AppLayout>;
   }
 
-  if (statusServer === "ok") {
+  if (statusServer === 'ok') {
     return (
       <AppLayout>
         <Component {...pageProps} />

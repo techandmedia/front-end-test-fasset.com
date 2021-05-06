@@ -2,7 +2,9 @@
   "name": "front-end-test-fasset",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "clean": "rimraf .next",
+    "format": "prettier --write \"components/**/*.js\" \"modules/**/*.js\" \"utils/**/*.js\" \"pages/**/*.js\" \"test/**/*.js\"",
+    "dev": "yarn clean && yarn format && cross-env NODE_ENV=development next",
     "build": "next build",
     "export": "next build && next export",
     "start": "next start"
@@ -19,6 +21,11 @@
     "postcss-preset-env": "^6.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2"
   },
   "browser": {
     "fs": false,

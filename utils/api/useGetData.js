@@ -1,6 +1,6 @@
-import { useState, useEffect, useReducer } from "react";
-import axios from "axios";
-import { fetchReducer } from "../reducers/fetch-reducer";
+import { useState, useEffect, useReducer } from 'react';
+import axios from 'axios';
+import { fetchReducer } from '../reducers/fetch-reducer';
 
 export function useGetData(INITIAL_API) {
   const [state, dispatch] = useReducer(fetchReducer, {
@@ -21,14 +21,14 @@ export function useGetData(INITIAL_API) {
 
         if (!didCancel) {
           dispatch({
-            type: "POST_SUCCESS",
+            type: 'POST_SUCCESS',
             result: result,
           });
         }
       } catch (error) {
         console.log(error.response);
         dispatch({
-          type: "POST_ERROR",
+          type: 'POST_ERROR',
           result: error.response.data,
         });
       }

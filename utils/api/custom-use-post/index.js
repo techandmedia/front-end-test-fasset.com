@@ -1,6 +1,6 @@
-import { useState, useEffect, useReducer } from "react";
-import axios from "axios";
-import { fetchReducer } from "../../reducers/fetch-reducer";
+import { useState, useEffect, useReducer } from 'react';
+import axios from 'axios';
+import { fetchReducer } from '../../reducers/fetch-reducer';
 
 export default function usePost() {
   const [state, dispatch] = useReducer(fetchReducer, {
@@ -16,13 +16,13 @@ export default function usePost() {
 
     async function post() {
       try {
-        console.log("OPtions: ", options);
+        console.log('OPtions: ', options);
         const result = await axios(options);
-        console.log("Response Result Success: ", result);
+        console.log('Response Result Success: ', result);
 
         if (!didCancel) {
           dispatch({
-            type: "POST_SUCCESS",
+            type: 'POST_SUCCESS',
             result: result.data,
           });
         }
@@ -34,12 +34,12 @@ export default function usePost() {
           // console.log(error.response.headers);
           if (error.response.status === 401) {
             dispatch({
-              type: "UNAUTHORIZED",
+              type: 'UNAUTHORIZED',
               result: error.response,
             });
           } else {
             dispatch({
-              type: "POST_ERROR",
+              type: 'POST_ERROR',
               result: error.response.data,
             });
           }
@@ -56,7 +56,7 @@ export default function usePost() {
     }
 
     if (options !== null || !options) {
-      console.log("OPtions: ", options);
+      console.log('OPtions: ', options);
       post();
     }
 

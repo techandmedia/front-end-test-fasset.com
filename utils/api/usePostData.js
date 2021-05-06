@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import usePost from "./custom-use-post";
+import { useState, useEffect } from 'react';
+import usePost from './custom-use-post';
 
-const URL = "https://api.coingecko.com/api/v3/";
+const URL = 'https://api.coingecko.com/api/v3/';
 
 export function usePostData(initialAPI, initialParams) {
   const [options, setOptions] = useState(null);
@@ -18,11 +18,11 @@ export function usePostData(initialAPI, initialParams) {
       const { api, params } = options;
 
       const newParams = {
-        method: "get",
+        method: 'get',
         url: URL + api,
         // data: params,
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       };
 
