@@ -206,7 +206,7 @@ body {
   margin: 0;
 }
 .card-container > .ant-tabs-card .ant-tabs-content {
-  height: 100%;
+  height: 800px;
   margin-top: -16px;
 }
 .card-container > .ant-tabs-card .ant-tabs-content > .ant-tabs-tabpane {

@@ -14,10 +14,10 @@ export function Overview({ coin }) {
   console.log(tickers);
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer width="100%" height="50%">
       <LineChart
         width={500}
-        height={1300}
+        height={500}
         data={tickers}
         margin={{
           top: 5,
