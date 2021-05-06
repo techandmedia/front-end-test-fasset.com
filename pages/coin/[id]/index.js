@@ -4,6 +4,7 @@ import { useGetData } from '../../../utils/api/useGetData';
 import { CustomTabs } from '../../../components/tabs';
 import { CoinDetail } from '../../../components/coin-details/coin.header';
 import { UserContext } from '../../../utils/context/Global-Context';
+import { Overview } from '../../../modules/overview';
 
 export default function Coin() {
   const [coin, getCoin] = useGetData(null);
@@ -13,7 +14,7 @@ export default function Coin() {
   const tabs = [
     {
       name: 'Overview',
-      component: <span>'Overview'</span>,
+      component: <Overview coin={coin.data} />,
     },
     {
       name: 'Markets',
@@ -44,7 +45,7 @@ export default function Coin() {
 
   useEffect(() => {
     if (coin.code === 200) {
-      console.log(coin.data);
+      // console.log(coin.data);
       dispatchUser({
         type: 'update-coin',
         value: { coin_name: coin.data.name },

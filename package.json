@@ -20,7 +20,8 @@
     "next": "latest",
     "postcss-preset-env": "^6.7.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "recharts": "^2.0.9"
   },
   "devDependencies": {
     "babel-plugin-transform-remove-console": "^6.9.4",
